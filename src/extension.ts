@@ -1,12 +1,12 @@
-import * as vscode from 'vscode';
+import * as vscode from '../.vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand('genshin-impact-theme-pack.selectTheme', async () => {
+  let disposable = vscode.commands.registerCommand('extension.selectTheme', async () => {
     const theme = await vscode.window.showQuickPick([
-      'Raiden Shogun Theme'
-    //   'Kaeya Theme',
-    //   'Jean Theme'
-    ], { placeHolder: 'Select a Theme' });
+      'Amber Theme',
+      'Kaeya Theme',
+      'Jean Theme'
+    ], { placeHolder: 'Select a Genshin Impact Theme' });
 
     if (theme) {
       const config = vscode.workspace.getConfiguration('workbench');
@@ -16,5 +16,3 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(disposable);
 }
-
-export function deactivate() {}
